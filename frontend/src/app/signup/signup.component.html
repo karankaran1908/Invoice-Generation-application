@@ -1,0 +1,60 @@
+<div class="toolbar" role="banner">
+    <span>Welcome</span>
+    <div class="spacer"></div>
+  
+    <button
+      mat-raised-button
+      [routerLink]="['/SignUp']"
+      routerLinkActive="mat-primary"
+    >
+      Sign up
+    </button>
+  
+    <button
+      mat-raised-button
+      [routerLink]="['/Login']"
+      routerLinkActive="mat-primary"
+    >
+      Login
+    </button>
+  </div>
+  
+  <!-- signup form layout -->
+  <mat-card class="card">
+    <form (submit)="onSignUp(signUpForm)" #signUpForm="ngForm" class="container">
+      <h1>Sign Up</h1>
+      <mat-form-field>
+        <input
+          matInput
+          name="email"
+          type="email"
+          ngModel
+          #emailInput="ngModel"
+          required
+          email
+          placeholder="E-Mail"
+        />
+        <mat-error *ngIf="emailInput.invalid"
+          >Please enter a vaild email.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          name="password"
+          ngModel
+          #passwordInput="ngModel"
+          required
+          password
+          type="password"
+          placeholder="Password"
+        />
+        <mat-error *ngIf="passwordInput.invalid"
+          >Please enter a vaild password.</mat-error
+        >
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+  </mat-card>
+  

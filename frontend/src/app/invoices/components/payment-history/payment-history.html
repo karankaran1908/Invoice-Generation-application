@@ -1,0 +1,29 @@
+<div class="mat-elevation-z3 table">
+  <mat-toolbar><h3>Payment History</h3> </mat-toolbar>
+  <!-- payment History layout -->
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cardNumber">
+      <th mat-header-cell *matHeaderCellDef>Card Number</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.cardNumber }}</td>
+    </ng-container>
+    <ng-container matColumnDef="expMonth">
+      <th mat-header-cell *matHeaderCellDef>Exp Month</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.expMonth }}</td>
+    </ng-container>
+    <ng-container matColumnDef="expYear">
+      <th mat-header-cell *matHeaderCellDef>Exp</th>
+      <td mat-cell *matCellDef="let payment">{{ payment.expYear }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 20, 50]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

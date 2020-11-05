@@ -1,0 +1,62 @@
+<mat-card class="card">
+
+  <form
+    [formGroup]="paymentForm"
+    (ngSubmit)="onSubmit()"
+    novalidate
+    class="container"
+  >
+    <h1>Payment</h1>
+    <p>Total amount: ${{total}}</p>
+    <!-- payment layout -->
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+      <mat-error
+        *ngIf="
+          paymentForm.controls.name.invalid && paymentForm.controls.name.touched
+        "
+        >Please enter a vaild Name.</mat-error
+      >
+    </mat-form-field>
+    <div class="container">
+
+      <mat-form-field class="cardno">
+        <input matInput placeholder="Card Number" formControlName="cardNumber" />
+        <mat-error
+          *ngIf="
+            paymentForm.controls.cardNumber.invalid &&
+            paymentForm.controls.cardNumber.touched
+          "
+          >Please enter a vaild Card Number.</mat-error
+        >
+      </mat-form-field><mat-form-field class="cvv">
+        <input  matInput placeholder="CVV"  />
+
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Exp. Month" formControlName="expMonth" />
+      <mat-error
+        *ngIf="
+          paymentForm.controls.expMonth.invalid &&
+          paymentForm.controls.expMonth.touched
+        "
+        >Please enter a vaild Exp. Month.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Exp. Year" formControlName="expYear" />
+      <mat-error
+        *ngIf="
+          paymentForm.controls.expYear.invalid &&
+          paymentForm.controls.expYear.touched
+        "
+        >Please enter a vaild Exp. Year.</mat-error
+      >
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-raised-button color="primary" type="submit">Pay</button>
+      <button mat-raised-button type="reset">Cancel</button>
+    </div>
+  </form>
+</mat-card>

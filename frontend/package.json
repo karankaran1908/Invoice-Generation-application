@@ -30,7 +30,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.4",
     "debug": "^4.1.1",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "express-pdf": "^1.2.2",
     "express-session": "^1.15.6",
     "file-saver": "^2.0.2",
